@@ -1,30 +1,30 @@
 #include <stdio.h>
-int main() {
-    int n, i, count = 0;
 
-    printf("Enter number of students: ");
+int main() {
+    int n, i, pos = -1;
+
+    printf("Enter number of scores: ");
     scanf("%d", &n);
 
-    int marks[n];
+    int arr[n];
 
-    printf("Enter the marks of students:\n");
+    printf("Enter the scores:\n");
     for(i = 0; i < n; i++) {
-        scanf("%d", &marks[i]);
+        scanf("%d", &arr[i]);
     }
 
-    printf("\nStudents who scored 99 are at index positions: ");
-
     for(i = 0; i < n; i++) {
-        if(marks[i] == 99) {
-            printf("%d ", i);  // print index of student who got 99
-            count++;
+        if(arr[i] == 99) {
+            pos = i;
+            break; // Stop after first occurrence
         }
     }
 
-    if(count == 0)
-        printf("None");
-
-    printf("\nTotal students who scored 99: %d\n", count);
+    if(pos != -1)
+        printf("First occurrence of score 99 is at index: %d\n", pos);
+    else
+        printf("Score 99 not found in the array.\n");
 
     return 0;
 }
+
